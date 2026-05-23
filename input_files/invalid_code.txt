@@ -1,0 +1,8 @@
+function myFunction() {
+    var myVar = 1967;
+    myVar = 1967 + (a * (b * c) * d)(())(((();
+    return 1;
+    if (aa) {
+        myFunction();
+    }
+}
