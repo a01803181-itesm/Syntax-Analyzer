@@ -245,6 +245,7 @@ class Parser {
             jumpError();
         }
     public:
+    std::vector<std::pair<TokenType, std::string>> getErrors() { return errors; }
         Parser(Lexer lx) {
             tokens = lx.getTokens();
             std::cout << "Starting parse analysis" << std::endl << std::endl;

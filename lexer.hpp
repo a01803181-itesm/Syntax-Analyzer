@@ -2,6 +2,7 @@
 #define LEXER_HPP
 
 #include <iostream>
+#include <fstream>
 #include "tokens.hpp"
 
 class Lexer {
