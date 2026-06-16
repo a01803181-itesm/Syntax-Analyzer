@@ -5,13 +5,20 @@
 #include <fstream>
 #include "tokens.hpp"
 
+// Lexer class to process the first syntax analysis stage:
+// segmentating all the string 'words' into enumerated tokens
+// our programming language understands
 class Lexer {
     private:
         std::vector<Token> tokens;
     public:
+        // A lexer may always receive a text source to analyze
+        // Thus, defining the constructor with a string source results appropiate
         Lexer(std::string code) {
             std::string current_string{};
             int pointer = 0;
+            // Iterates over the whole string source attempting to assign tokens
+            // to each of the words the lexer detects
             while (pointer < code.length()) {
                 auto symbol_it = TokenDefinitions().symbols.find(code[pointer]);
                 auto op_it = TokenDefinitions().operators.find(code.substr(pointer, 1));
@@ -56,36 +63,42 @@ class Lexer {
             }
         }
 
+        // Returns all the tokens gathered by the lexer constructor 
         std::vector<Token> getTokens() { return tokens; }
 
+        // Adds up a specific token to the tokens vector
         void pushBackToken(TokenType type, std::string value) {
             tokens.push_back({type, value});
         }
 
+        // Adds up a token based on the input it receives
+        // This function is specially necessary to determine
+        // whether the input is about a keyword, an identifier or a
+        // numerical value based on the criteria described in our RGs
         void pushBackToken(std::string input) {
             if (!input.empty()) {
                 Token new_token;
                 if (std::regex_match(input, TokenDefinitions().identifier.second)) {
-                    // std::cout << "POTENTIAL IDENTIFIER DETECTED!!" << std::endl;
+                    // Potential identifier detected: determining whether it is a keyword or not
                     if (TokenDefinitions().keywords.find(input) != TokenDefinitions().keywords.end()) {
-                        // std::cout << "NOT AN IDENTIFIER BUT A KEYWORD!" << std::endl;
+                        // Not an identifier but a keyword
                         new_token = {TokenDefinitions().keywords.find(input)->second, input};
                     } else {
-                        // std::cout << "IDENTIFIER VERIFIED!!" << std::endl;
+                        // Identifier verified
                         new_token = {TokenDefinitions().identifier.first, input};
                     }
                 } else if (std::regex_match(input, TokenDefinitions().val_num.second)) {
-                    // std::cout << "NUMERIC VALUE DETECTED!!" << std::endl;
+                    // Numerical value detected NUMERIC VALUE DETECTED
                     new_token = {TokenDefinitions().val_num.first, input};
                 } else {
-                    // std::cout << "UNKOWN INPUT DETECTED..." << std::endl;
+                    // Unknown input detected
                     new_token = {TokenType::UNKNOWN, input};
                 }
-                // std::cout << input << std::endl;
                 tokens.push_back(new_token);
             }
         }
 
+        // Prints out all the gathered tokens based on their enum type
         void printTokens() {
             std::cout << "# of tokens collected: " << tokens.size() << std::endl;
             for (Token token : tokens) {
@@ -172,6 +185,8 @@ class Lexer {
                 std::cout << token.value << std::endl;
             }
         }
+        
+        // Writes all the gathered tokens based on their enum type into a file
         void writeTokens(std::ofstream& output_file) {
             output_file << "# of tokens collected: " << tokens.size() << std::endl;
             for (Token token : tokens) {
@@ -258,6 +273,8 @@ class Lexer {
                 output_file << token.value << std::endl;
             }
         }
+
+        // Prints out all syntax errors the lexer detected
         void printSyntaxErrors() {
             int errors = 0;
             for (Token token : tokens) {
