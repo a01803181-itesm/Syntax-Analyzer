@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+.venv/
+.vscode/
+
+csv/*
+!csv/.gitkeep
+
+html/*
+!html/.gitkeep
+
+test/*
+*.txt
