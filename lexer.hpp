@@ -1,6 +1,8 @@
 #ifndef LEXER_HPP
 #define LEXER_HPP
 
+#include <iostream>
+#include <fstream>
 #include "tokens.hpp"
 
 // Lexer class to process the first syntax analysis stage:

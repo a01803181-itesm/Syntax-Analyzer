@@ -1,0 +1,24 @@
+/* Estilos Globales */
+body { font-family: 'Courier New', monospace; background-color: #1e1e1e; color: #cfcfcf; padding: 25px; line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; }
+pre { background-color: #252526; padding: 20px; border-radius: 6px; border: 1px solid #3c3c3c; overflow-x: auto; white-space: pre-wrap; font-size: 16px; }
+h2 { font-family: Arial, sans-serif; margin-bottom: 15px; }
+
+/* Paleta de Colores del Resaltador */
+.keyword { color: #569cd6; font-weight: bold; }
+.identifier { color: #9cdcfe; }
+.number { color: #b5cea8; }
+.operator { color: #d4d4d4; }
+.comparison { color: #dcdcaa; }
+.punctuation { color: #ffd700; }
+.unknown { color: #f44747; text-decoration: underline wavy #f44747; font-weight: bold; }
+
+.success-msg { color: #4ec9b0; font-family: Arial, sans-serif; font-weight: bold; margin-bottom: 15px; font-size: 18px; }
+
+/* Vista Especial de Error Sintáctico */
+.error-box { background-color: #3a1e1e; border: 2px solid #f44747; border-radius: 6px; padding: 15px; margin-bottom: 25px; font-family: Arial, sans-serif; color: #f44747; }
+.error-box h3 { margin-top: 0; color: #ff6b6b; }
+.error-item { margin-bottom: 8px; font-size: 14px; color: #ffccd0; }
+.codigo-error span { text-decoration: line-through; opacity: 0.6; }
+.codigo-error .unknown { color: #ff6b6b; text-decoration: underline wavy #f44747; opacity: 1; }
+.codigo-error { background-color: #2d1818 !important; border: 2px dashed #f44747 !important; }
