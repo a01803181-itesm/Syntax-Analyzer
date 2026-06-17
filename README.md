@@ -14,9 +14,11 @@ Additionally, attached you can find a link to a compression format file that con
 ## Language Documentation
 
 The definition and syntax of our programming language is explicitly detailed using Context-Free Grammars and Regular Expressions.
-[![Read Language Specifications](docs/covers/Syntax Analyzer_cover.jpg)](docs/Syntax Analyzer.pdf)
+
+[![Read Language Specifications](docs/covers/Syntax_Analyzer_cover.jpg)](docs/Syntax_Analyzer.pdf)
 
 ## Academic Paper Using Experimental Cases
 
 Click the preview below to read the complete academic paper covering the performance and architectural benchmarks of the program after processing the experiments listed in the project.
-[![Read Language Specifications](docs/covers/Analysis of Sequential and Multi-thread Computing Performance Differences in Variable-length Task Sizes_cover.jpg)](docs/Analysis of Sequential and Multi-thread Computing Performance Differences in Variable-length Task Sizes.pdf)
+
+[![Read Academic Paper](docs/covers/Analysis_of_Sequential_and_Multi_thread_Computing_Performance_Differences_in_Variable_length_Task_Sizes_cover.jpg)](docs/Analysis_of_Sequential_and_Multi_thread_Computing_Performance_Differences_in_Variable_length_Task_Sizes.pdf)
